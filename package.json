@@ -29,7 +29,7 @@
   "devDependencies": {
     "@babel/core": "^7.18.5",
     "@babel/preset-env": "^7.22.10",
-    "@babel/preset-typescript": "^7.17.12",
+    "@babel/preset-typescript": "^7.22.11",
     "@types/cheerio": "^0.22.31",
     "@types/jest": "^28.1.3",
     "@types/minimist": "^1.2.2",
