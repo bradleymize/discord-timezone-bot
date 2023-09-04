@@ -27,7 +27,7 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/general_bradley/discord-bot-seed#readme",
   "devDependencies": {
-    "@babel/core": "^7.18.5",
+    "@babel/core": "^7.22.15",
     "@babel/preset-env": "^7.22.14",
     "@babel/preset-typescript": "^7.22.11",
     "@types/cheerio": "^0.22.31",
