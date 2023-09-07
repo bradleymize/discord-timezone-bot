@@ -1,4 +1,4 @@
-import {Client} from 'discord.js';
+import {ActivityType, Client} from 'discord.js';
 import {Bot} from '../../Bot';
 import {getLogger} from '../../logger';
 import {EventHandlerInterface} from '../event.handler.interface';
@@ -16,7 +16,7 @@ export class ReadyHandler implements EventHandlerInterface {
 
   async handle(): Promise<any> {
     winston.info(`Bot started (v${meta.version})...`);
-    Bot.client?.user?.setActivity(`v${meta.version}`, {type: "LISTENING"});
+    Bot.client?.user?.setActivity(`v${meta.version}`, {type: ActivityType.Listening});
   }
 }
 

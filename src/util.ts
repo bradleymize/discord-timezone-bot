@@ -3,6 +3,9 @@ import {SlashCommandBuilder} from '@discordjs/builders';
 import {promises as fsp} from "fs";
 import {join, sep} from "path";
 import {EventHandlerInterface} from './clientEventHandlers/event.handler.interface';
+import {getLogger} from "./logger";
+
+const winston = getLogger('util.ts');
 
 // export const DEVELOPER_ID = "185542644850622464";
 //
@@ -40,7 +43,10 @@ export async function getAllOfType(type: ActionableType, dir: string = "./src"):
 
 export async function load(type: ActionableType, files: string[]): Promise<EventHandlerInterface[] | SlashCommandBuilder[]> {
   let commands = await Promise.all(files.map(async (file) => {
+    winston.debug(`Found command: ${file}`);
     let newPath = file.split(sep).slice(1).join("/");
+    winston.debug(`    Converted file path to: ${newPath}`);
+    winston.debug(`    Importing: ./${newPath.substring(0,newPath.length-3)}`);
     let imported = await import(`./${newPath.substring(0,newPath.length-3)}`);
     return imported.default;
   }));

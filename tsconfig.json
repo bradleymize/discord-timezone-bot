@@ -2,7 +2,7 @@
   "compilerOptions": {
     "module": "commonjs",
     "esModuleInterop": true,
-    "target": "es6",
+    "target": "es2022",
     "noImplicitAny": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
@@ -11,6 +11,7 @@
     "baseUrl": ".",
     "strict": true,
     "strictNullChecks": true,
+    "skipLibCheck": true,
     "paths": {
       "*": [
         "node_modules/*",

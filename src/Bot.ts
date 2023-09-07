@@ -2,7 +2,7 @@ import {SlashCommandBuilder} from '@discordjs/builders';
 import {REST} from '@discordjs/rest';
 import {BotClient} from 'BotClient';
 import {Routes} from 'discord-api-types/v9';
-import {Client, Collection, Intents} from 'discord.js';
+import {Client, Collection, GatewayIntentBits} from 'discord.js';
 import minimist from 'minimist';
 import {getLogger} from './logger';
 import {ActionableType, getAllOfType, load} from "./util"
@@ -39,7 +39,7 @@ export class Bot {
       }
 
       // Create the client
-      const client: BotClient = new Client({ intents: [Intents.FLAGS.GUILDS] });
+      const client: BotClient = new Client({ intents: [GatewayIntentBits.Guilds] });
 
       // Build the commands
       client.commands = new Collection<any,any>();
