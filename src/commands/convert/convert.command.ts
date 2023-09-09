@@ -1,8 +1,6 @@
-import { SlashCommandBuilder, SlashCommandStringOption, SlashCommandBooleanOption } from "@discordjs/builders";
-import {CommandInteraction, CommandInteractionOptionResolver} from 'discord.js';
+import { SlashCommandBuilder, SlashCommandStringOption } from "@discordjs/builders";
 import {getLogger} from '../../logger';
 import {CustomCommand} from '../command.interface';
-import {setTimeout} from 'node:timers/promises'
 import moment, {Moment} from "moment-timezone";
 
 const winston = getLogger("convert.command.ts");
@@ -37,7 +35,10 @@ export class ConvertCommand extends SlashCommandBuilder implements CustomCommand
     await interaction.deferReply({ephemeral: true});
     const localTimeZone: string = interaction?.options?.getString("local_timezone") as string;
     const timeString: string = interaction?.options?.getString("time") as string;
+    const consoleWarn = console.warn;
+    console.warn = () => {};
     const time: Moment = moment.tz(timeString, "GMT");
+    console.warn = consoleWarn;
     await interaction.editReply(`Converting ${time.format("L LT")} from UTC/GMT to ${localTimeZone}: ${time.clone().tz(localTimeZone).format("L LT")}`);
   }
 }

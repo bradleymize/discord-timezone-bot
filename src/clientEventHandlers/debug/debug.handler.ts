@@ -2,7 +2,7 @@ import {Client} from 'discord.js';
 import {getLogger, LogLevel} from '../../logger';
 import {EventHandlerInterface} from '../event.handler.interface';
 
-const winston = getLogger("Debug.handler.ts");
+const winston = getLogger("debug.handler.ts");
 
 export class DebugHandler implements EventHandlerInterface {
   enabled = true;
