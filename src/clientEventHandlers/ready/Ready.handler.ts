@@ -4,18 +4,18 @@ import {getLogger} from '../../logger';
 import {EventHandlerInterface} from '../event.handler.interface';
 import meta from '../../../package.json';
 
-const winston = getLogger("Ready.handler.ts");
-
 export class ReadyHandler implements EventHandlerInterface {
   enabled = true;
+  logger;
 
   constructor(client: Client) {
     client.on('ready', this.handle);
-    winston.info("Loaded client ready handler.");
+    this.logger = getLogger("Ready.handler.ts");
+    this.logger.info("Loaded client ready handler.");
   }
 
-  async handle(): Promise<any> {
-    winston.info(`Bot started (v${meta.version})...`);
+  handle = async (): Promise<any> => {
+    this.logger.info(`Bot started (v${meta.version})...`);
     Bot.client?.user?.setActivity(`v${meta.version}`, {type: ActivityType.Listening});
   }
 }

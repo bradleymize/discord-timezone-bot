@@ -3,16 +3,16 @@ import {getLogger} from '../../logger';
 import {CustomCommand} from '../command.interface';
 import moment, {Moment} from "moment-timezone";
 
-const winston = getLogger("convert.command.ts");
-
 export class ConvertCommand extends SlashCommandBuilder implements CustomCommand {
   name = "convert"
   description = "Convert a GMT/UTC time to local"
   dm_permission = false
+  logger;
 
   constructor() {
     super();
-    winston.info("Instantiating convert command");
+    this.logger = getLogger("convert.command.ts");
+    this.logger.info("Instantiating convert command");
     this.addStringOption((option: SlashCommandStringOption): SlashCommandStringOption => {
       option
           .setName("time")
@@ -27,10 +27,10 @@ export class ConvertCommand extends SlashCommandBuilder implements CustomCommand
           .setRequired(true);
       return option;
     });
-    winston.info("    Convert command instantiated");
+    this.logger.info("    Convert command instantiated");
   }
 
-  async execute(interaction: any) {
+  execute = async (interaction: any) => {
     // console.log(interaction); // Uncomment for more detailed information about the interaction
     await interaction.deferReply({ephemeral: true});
     const localTimeZone: string = interaction?.options?.getString("local_timezone") as string;

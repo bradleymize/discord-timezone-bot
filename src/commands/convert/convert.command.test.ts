@@ -1,7 +1,7 @@
 import { ConvertCommand } from "./convert.command";
 import {ApplicationCommandOptionType} from "discord-api-types/v10";
 jest.mock('../../logger', () => ({
-    getLogger: jest.fn().mockReturnValueOnce({
+    getLogger: jest.fn().mockReturnValue({
         info: jest.fn()
     })
 }));
@@ -10,7 +10,7 @@ describe('convert.commant.ts', () => {
     describe('init', () => {
         it('sets up the parameters', () => {
             const addStringOptionSpy:any = jest.spyOn(ConvertCommand.prototype, "addStringOption")
-            new ConvertCommand();
+            const cmd = new ConvertCommand();
             const options = addStringOptionSpy.mock.results[0].value.options;
 
             expect(options[0].name).toEqual("time");
@@ -22,6 +22,8 @@ describe('convert.commant.ts', () => {
             expect(options[1].description).toEqual("Your local timezone");
             expect(options[1].required).toEqual(true);
             expect(options[1].type).toEqual(ApplicationCommandOptionType.String);
+
+            expect(cmd.logger.info).toHaveBeenCalledWith("Instantiating convert command");
         });
     });
 

@@ -2,18 +2,18 @@ import {Client} from 'discord.js';
 import {getLogger} from '../../logger';
 import {EventHandlerInterface} from '../event.handler.interface';
 
-const winston = getLogger("Warn.handler.ts");
-
 export class WarnHandler implements EventHandlerInterface {
   enabled = true;
+  logger;
 
   constructor(client: Client) {
     client.on('warn', this.handle);
-    winston.info("Loaded client warn handler.");
+    this.logger = getLogger("Warn.handler.ts");
+    this.logger.info("Loaded client warn handler.");
   }
 
-  async handle(message: string): Promise<any> {
-    winston.warn(message);
+  handle = async (message: string): Promise<any> => {
+    this.logger.warn(message);
   }
 }
 

@@ -2,7 +2,7 @@ const mockDebug = jest.fn();
 const transports = [{} as any]
 jest.mock('../../logger', () => ({
     ...(jest.requireActual('../../logger')),
-    getLogger: jest.fn().mockReturnValueOnce({
+    getLogger: jest.fn().mockReturnValue({
         info: jest.fn(),
         debug: mockDebug,
         transports: transports

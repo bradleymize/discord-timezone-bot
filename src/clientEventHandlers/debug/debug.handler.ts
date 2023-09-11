@@ -2,21 +2,21 @@ import {Client} from 'discord.js';
 import {getLogger, LogLevel} from '../../logger';
 import {EventHandlerInterface} from '../event.handler.interface';
 
-const winston = getLogger("debug.handler.ts");
-
 export class DebugHandler implements EventHandlerInterface {
   enabled = true;
+  logger;
 
   constructor(client: Client) {
     client.on('debug', this.handle);
-    winston.info(`Loaded client debug handler.`);
+    this.logger = getLogger("debug.handler.ts");
+    this.logger.info(`Loaded client debug handler.`);
     if(this.enabled) {
-      winston.transports[0].level = LogLevel.DEBUG;
+      this.logger.transports[0].level = LogLevel.DEBUG;
     }
   }
 
-  async handle(message: string): Promise<any> {
-    winston.debug(message);
+  handle = async (message: string): Promise<any> => {
+    this.logger.debug(message);
   }
 }
 

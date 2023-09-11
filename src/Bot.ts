@@ -6,6 +6,7 @@ import {Client, Collection, GatewayIntentBits} from 'discord.js';
 import minimist from 'minimist';
 import {getLogger} from './logger';
 import {ActionableType, getAllOfType, load} from "./util"
+import {inspect} from "util";
 
 const winston = getLogger("Bot.ts");
 
@@ -50,7 +51,9 @@ export class Bot {
         const cmd: SlashCommandBuilder = new (<any>HandlerClass)();
         // noinspection TypeScriptValidateTypes - For some reason, it doesn't like Map types
         client.commands?.set(cmd.name, cmd)
-        commandPayload.push(cmd.toJSON());
+        const cmdJson = cmd.toJSON();
+        (cmdJson as any).logger = undefined; //clear logger to prevent circular references
+        commandPayload.push(cmdJson);
       });
 
       // Build the event handlers
