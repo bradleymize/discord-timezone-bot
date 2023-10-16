@@ -33,7 +33,7 @@
     "@types/cheerio": "^0.22.32",
     "@types/jest": "^29.5.5",
     "@types/minimist": "^1.2.3",
-    "@types/node": "^20.8.3",
+    "@types/node": "^20.8.6",
     "@types/node-cron": "^3.0.9",
     "@types/node-fetch": "^3.0.3",
     "babel-jest": "^29.6.4",
