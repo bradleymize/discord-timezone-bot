@@ -31,6 +31,8 @@ jobs:
     - run: npm test
 
   dependabot:
+    permissions:
+      contents: write
     name: 'Dependabot'
     needs: [build]
     runs-on: ubuntu-latest
