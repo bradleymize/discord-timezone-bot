@@ -44,7 +44,7 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "@discordjs/rest": "^2.2.0",
+    "@discordjs/rest": "^2.3.0",
     "cheerio": "^1.0.0-rc.12",
     "discord-api-types": "^0.37.83",
     "discord.js": "^14.14.1",
