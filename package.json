@@ -47,7 +47,7 @@
     "@discordjs/rest": "^2.4.0",
     "cheerio": "^1.0.0",
     "discord-api-types": "^0.37.114",
-    "discord.js": "^14.16.3",
+    "discord.js": "^14.17.2",
     "dotenv": "^16.4.7",
     "level": "^9.0.0",
     "minimist": "^1.2.8",
