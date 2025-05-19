@@ -52,7 +52,7 @@
     "level": "^10.0.0",
     "minimist": "^1.2.8",
     "moment-timezone": "^0.5.48",
-    "node-cron": "^4.0.3",
+    "node-cron": "^4.0.5",
     "node-fetch": "^3.3.2",
     "winston": "^3.17.0"
   }
