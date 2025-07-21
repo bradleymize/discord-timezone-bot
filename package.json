@@ -30,7 +30,7 @@
     "@babel/core": "^7.28.0",
     "@babel/preset-env": "^7.28.0",
     "@babel/preset-typescript": "^7.27.1",
-    "@types/cheerio": "^0.22.35",
+    "@types/cheerio": "^1.0.0",
     "@types/jest": "^30.0.0",
     "@types/minimist": "^1.2.5",
     "@types/node": "^24.0.13",
@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "@discordjs/rest": "^2.5.1",
-    "cheerio": "^1.1.0",
+    "cheerio": "^1.1.1",
     "discord-api-types": "^0.38.16",
     "discord.js": "^14.21.0",
     "dotenv": "^17.2.0",
