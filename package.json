@@ -48,7 +48,7 @@
     "cheerio": "^1.2.0",
     "discord-api-types": "^0.38.37",
     "discord.js": "^14.25.1",
-    "dotenv": "^17.2.3",
+    "dotenv": "^17.2.4",
     "level": "^10.0.0",
     "minimist": "^1.2.8",
     "moment-timezone": "^0.6.0",
